@@ -14,7 +14,7 @@ build:
         uses:actions/checkout@v3
       -name:SetupNode.js
         uses:actions/setup-node@v3
-        with:
+    with:
           node-version:'20.8.1'
       -name:InstallDependencies
         run:npminstall
