@@ -1,4 +1,4 @@
-name: BuildandDeploytoStaging
+name: Deploymentpipeline
 on:
 push:
     branches:
@@ -7,16 +7,15 @@ push:
       -'*'
 jobs:
 build:
-    name:Buildnodejsproject
     runs-on:ubuntu-latest
     steps:
       -name:CheckoutCode
         uses:actions/checkout@v3
       -name:SetupNode.js
         uses:actions/setup-node@v3
-    with:
+        with:
           node-version:'20.8.1'
       -name:InstallDependencies
         run:npminstall
-      -name:BuildReactApp
+      -name:BuildNodeProject
         run:npmrunbuild
