@@ -22,7 +22,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.8.1'
-          cache: 'npm'
       
       - name: Install Dependencies
         run: npm install
@@ -38,3 +37,4 @@ jobs:
             dist/
             build/
           if-no-files-found: ignore
+
