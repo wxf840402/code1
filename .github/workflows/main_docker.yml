@@ -11,7 +11,7 @@ docker:
   runs-on: ubuntu-latest
   needs: build
 steps:
-    -name: CheckoutCode
+    -name: CheckoutCode1
       uses: actions/checkout@v3
     -name: LogintoDockerHub
       uses: docker/login-action@v2
