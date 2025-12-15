@@ -34,7 +34,7 @@ jobs:
             dist/
             build/
           if-no-files-found: ignore
-docker:
+  docker:
     name: Docker Build and Push
     runs-on: ubuntu-latest
     needs: build
