@@ -15,7 +15,7 @@ jobs:
     name:DockerBuildandPush
     runs-on:ubuntu-latest
     needs:build
-       steps：
+    steps:
       -name:CheckoutCode
         uses:actions/checkout@v3
       -name:LogintoDockerHub
