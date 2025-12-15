@@ -19,13 +19,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.8.1'
-      
+        if: hashFiles('package.json') != ''
       - name: Install Dependencies
         run: npm install
-      
+        if: hashFiles('package.json') != ''
       - name: Build React App
         run: npm run build
-      
+        if: hashFiles('package.json') != ''
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
