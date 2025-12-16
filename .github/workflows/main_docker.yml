@@ -55,15 +55,14 @@ jobs:
         
       - name: List directory contents
         run: ls -la
+        
       - name: Build Docker Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          #file: ./Dockerfile  # 指定 Dockerfile 的位置，默认为当前目录下的 Docker
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/github-action-test:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/github-action-test:buildcache,mode=max
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest .
+
+      - name: Push Docker Image
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
   
   deploy:
     name: Deploy to Remote VPS
