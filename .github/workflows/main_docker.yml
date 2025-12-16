@@ -51,16 +51,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      
-      - name: Build Docker Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/github-action-test:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/github-action-test:buildcache,mode=max
-
+      - name: BuildDockerImage
+        run:|
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest .
+       - name: PushDockerImage
+        run:|
+          docker push ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
   deploy:
     name: Deploy to Remote VPS
     runs-on: ubuntu-latest
