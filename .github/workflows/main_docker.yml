@@ -51,6 +51,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: List directory contents
+        run: ls -la
       - name: Build Docker Image
         uses: docker/build-push-action@v5
         with:
@@ -60,8 +62,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/github-action-test:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/github-action-test:buildcache,mode=max
-      - name: List directory contents
-        run: ls -la
+  
   deploy:
     name: Deploy to Remote VPS
     runs-on: ubuntu-latest
