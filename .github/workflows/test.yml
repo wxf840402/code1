@@ -31,9 +31,9 @@ jobs:
       - name: 执行远程SSH命令
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          password: ${{ secrets.PASSWORD }}
+          host: 150.242.98.65 #${{ secrets.REMOTE_HOST }}
+          username: lenovo #${{ secrets.REMOTE_USER }}
+          password: singer8402 #${{ secrets.PASSWORD }}
           port: 38028 #${{ secrets.PORT }}
           script: | 
             cd website/eiwen-disk
