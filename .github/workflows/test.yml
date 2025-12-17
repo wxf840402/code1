@@ -36,9 +36,7 @@ jobs:
           password: singer8402 #${{ secrets.PASSWORD }}
           port: 38028 #${{ secrets.PORT }}
           script: | 
-            cd website/eiwen-disk
-            npm i
-            npm i pm2 -g
-            pm2 reload bin/www --name disk
+           whoami
+           ls -al
       
 
