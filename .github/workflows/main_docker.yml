@@ -89,10 +89,3 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
             echo "Starting container with Docker Compose"
             docker compose up -d
-            #!/bin/bash
-            # 检查环境变量
-            if [ -z "$INPUT_HOST" ]; then
-              echo "Error: missing server host"
-              exit 1
-            fi
-            # 其他错误检查逻辑
