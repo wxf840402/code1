@@ -1,10 +1,13 @@
 name: List directory contents
 on: [push]
 jobs:
-  list-contents:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: List directory contents
-        run: ls -la
+  name: executing remote ssh commands
+  uses: appleboy/ssh-action@v1.2.0
+  with:
+    host: ${{ secrets.HOST }}
+    username: ${{ secrets.USERNAME }}
+    key: ${{ secrets.KEY }}
+    port: ${{ secrets.PORT }}
+    script: whoami
+    debug: true
+
