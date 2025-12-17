@@ -75,6 +75,7 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port‌: ${{ secrets.PORT }}
           script: |
             echo "Navigating to the Docker Compose file directory"
             cd /path/to/your/repo/
@@ -89,5 +90,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
             echo "Starting container with Docker Compose"
             docker compose up -d
-          debug: true
 
