@@ -90,4 +90,3 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/github-action-test:latest
             echo "Starting container with Docker Compose"
             docker compose up -d
-
