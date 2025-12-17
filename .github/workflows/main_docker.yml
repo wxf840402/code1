@@ -75,7 +75,7 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port‌: 2222
+          port‌: '2222'
           script: |
             echo "Navigating to the Docker Compose file directory"
             cd /path/to/your/repo/
