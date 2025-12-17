@@ -10,6 +10,10 @@ jobs:
     name: 测试任务
     runs-on: ubuntu-latest
     steps:
+      - name: Set environment variables
+        run: |
+         echo "LANG=en_US.UTF-8" >> $GITHUB_ENV
+         echo "LANGUAGE=en_US.UTF-8" >> $GITHUB_ENV
       - name: 打印文本
         run: |
           echo 我的名字是阿飞
